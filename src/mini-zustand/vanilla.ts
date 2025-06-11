@@ -27,7 +27,7 @@ type CreateStore = {
     <T>(createState: StateCreator<T>): StoreApi<T>;
     <T>(): (createState: StateCreator<T>) => StoreApi<T>;
 }
-export const CreateStore = ((createState) => createState ? createStoreImpl(createState) : createStoreImpl) as CreateStore;
+export const createStore = ((createState) => createState ? createStoreImpl(createState) : createStoreImpl) as CreateStore;
 type CreateStoreImpl = <T>(createImpl: StateCreator<T>) => StoreApi<T>;
 export const createStoreImpl: CreateStoreImpl = (createState) => {
     type TState = ReturnType<typeof createState>;
