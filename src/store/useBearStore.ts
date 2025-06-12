@@ -8,7 +8,7 @@ interface BaerState {
     reset: () => void
     increaseCount: () => void
 }
-const useCreateState = create(
+const useBearStore = create(
     immer<BaerState>((set) => ({
         bears: 0,
         count: 100,
@@ -21,4 +21,4 @@ const useCreateState = create(
         increaseCount: () => set((state) => ({ count: state.count + 1 })),
     }))
 )
-export default useCreateState
+export { useBearStore }
